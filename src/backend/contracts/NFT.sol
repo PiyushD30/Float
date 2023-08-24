@@ -6,5 +6,10 @@ contract NFT is ERC721URIStorage{
     uint public tokenCount;
     constructor()ERC721("Float NFT","FLT"){}
 
-    function mint(string meomry _tokenURI)
+    function mint(string memory _tokenURI) external returns(uint){
+        tokenCount ++;
+        _safeMint(msg.sender, tokenCount);
+        _setTokenURI(tokenCount, _tokenURI);
+        return(tokenCount);
+    }
 }
