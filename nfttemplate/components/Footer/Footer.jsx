@@ -43,11 +43,11 @@ const Footer= () => {
                 </div>
                 <div className={Style.subscribe}>
                     <h3>Subscribe</h3>
-                        <div className={Style.subscribed_box}>
+                        <div className={Style.subscribe_box}>
                         <input type='email' placeholder='Enter your email *' />
-                        <RiSendPlaneFill className={Style.subscribed_box_send} />
+                        <RiSendPlaneFill className={Style.subscribe_box_send} />
                     </div>
-                    <div className={Style.subscribed_box_info}>
+                    <div className={Style.subscribe_box_info}>
                         <p>Discover, collect and sell extraordinary NFTs at FLOAT. The world is here .... where are you?
                         </p>
                     </div>     

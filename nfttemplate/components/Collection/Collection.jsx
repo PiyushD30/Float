@@ -4,7 +4,7 @@ import {BsFillAlarmFill,BsFillCalendarDateFill,BsCalendar3} from 'react-icons/bs
 //internal import
 
 import Style from './Collection.module.css';
-import DaysComponent from './DaysComponents/DaysComponents';
+import DaysComponent from './DaysComponent/DaysComponent';
 
 
 const Collection = () => {
@@ -13,7 +13,26 @@ const Collection = () => {
     const [news, setNews] = useState(false);
     const CardArray = [1, 2, 3, 4, 5, 6, 7, 8];
     const followingArray = [1, 2, 3, 4];
-    const newsArray = [1, 2, 3, 4, 5,6];
+    const newsArray = [1, 2, 3, 4, 5, 6];
+    
+    const openPopular = () => {
+        if (!popular)
+        setPopular(true)
+        setFollowing(false)
+        setNews(false)
+    }
+    const openFollower = () => {
+        if (!following)
+        setPopular(false)
+        setFollowing(true)
+        setNews(false)
+    }    
+    const openNews = () => {
+        if (!news)
+        setPopular(false)
+        setFollowing(false)
+        setNews(true)
+    }
 
     return (
         <div className={Style.collection}>
@@ -30,11 +49,36 @@ const Collection = () => {
                         <button onClick={() => openNews()}>
                             <BsFillCalendarDateFill /> Last 30 days
                         </button>
-
                     </div>
                 </div>
-
             </div>
+            {
+                popular && (
+                    <div className={Style.collection_box}>
+                        {CardArray.map((el, i) => (
+                            <DaysComponent key = { i+ 1}/>
+                        ))}
+                    </div>
+                )
+            }
+            {
+                following && (
+                    <div className={Style.collection_box}>
+                        {followingArray.map((el, i) => (
+                            <DaysComponent key = { i+ 1}/>
+                        ))}
+                    </div>
+                )
+            }
+            {
+                news && (
+                    <div className={Style.collection_box}>
+                        {newsArray.map((el, i) => (
+                            <DaysComponent key = { i+ 1}/>
+                        ))}
+                    </div>
+                )
+            }
         </div>
     )
 }
