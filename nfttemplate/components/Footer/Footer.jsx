@@ -13,7 +13,6 @@ const Footer= () => {
         <div className={Style.footer}>
             <div className={Style.footer_box}>
                 <div className={Style.footer_box_social}>
-                    <Image src={images.logo} alt="footer logo" height={100} width={100} />
                     <p> Welcome to FLOAT. The world is here...Where are you?</p>
                     <div className={Style.footer_social}>
                         <a href='#'>
