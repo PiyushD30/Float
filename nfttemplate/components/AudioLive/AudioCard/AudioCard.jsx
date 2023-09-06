@@ -6,6 +6,7 @@ import {TbPlayerPlay, TbPlayerPause} from 'react-icons/tb'
 
 import Style from './AudioCard.module.css';
 import images from '../../../img';
+import LikeProfile from '../../LikeProfile/LikeProfile';
 
 const AudioCard = () => {
 
@@ -53,7 +54,7 @@ const AudioCard = () => {
                 </div>
                 <div className={Style.audioCard_box_player}>
                     <Image src={images.musicwave} alt='music' width={200} />
-                    <div className={Style.audioCard_box_musicPlayer} onClick={() => playMusic}>
+                    <div className={Style.audioCard_box_musicPlayer} onClick={() => playMusic()}>
                     {play ? (
                         <div className={Style.audioCard_box_musicPlayer_icon}>
                             <TbPlayerPause/>
@@ -74,6 +75,7 @@ const AudioCard = () => {
                         </div>
                     </div>
                     <div className={Style.audioCard_box_details_stock}>
+                        <LikeProfile/>
                         <small>96 in Stock</small>
                     </div>
                 </div>
