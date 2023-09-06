@@ -3,7 +3,7 @@ import React from 'react'
 //internal import
 
 import Style from '../styles/index.module.css';
-import { HeroSection, Service, BigNFTSlider, Subscribe, Title, Category, Filter, NFTCard, Collection,AudioLive, FollowerTab} from '../components/componentsindex'
+import { HeroSection, Service, BigNFTSlider, Subscribe, Title, Category, Filter, NFTCard, Collection,AudioLive, FollowerTab, Slider} from '../components/componentsindex'
 const Home = () => {
     return (
         <div className={Style.homePage}>
@@ -15,7 +15,8 @@ const Home = () => {
                 paragraph="World-Class Audio NFTs at your fingertips"
             /> 
             <AudioLive/>
-            <FollowerTab/>
+            <FollowerTab />
+            <Slider/>
             <Collection />
             <Title
                 heading="Featured NFTs"
