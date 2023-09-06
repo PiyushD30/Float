@@ -10,5 +10,7 @@ import Category from './Category/Category';
 import Filter from './Filter/Filter';
 import NFTCard from './NFTCard/NFTCard';
 import Collection from './Collection/Collection';
+import FollowerTab from './FollowerTab/FollowerTab';
+import AudioLive from './AudioLive/AudioLive';
 
-export { Button, Footer, NavBar, HeroSection, Service, BigNFTSlider, Subscribe, Title, Category, Filter, NFTCard,Collection};
+export { Button, Footer, NavBar, HeroSection, Service, BigNFTSlider, Subscribe, Title, Category, Filter, NFTCard, Collection, FollowerTab, AudioLive};
