@@ -1,20 +1,31 @@
-.audioCard_box {
+
+.audioCard_box{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(6, 4rem);
     gap: 1rem;
     overflow: hidden;
-    transition: all .3s ease-in;
+transition:  all .3s ease-in;
     border-radius: 2rem;
 }
 
-.audioCard_box{
+.audioCard_box:hover{
     box-shadow: var(--box-shadow);
 }
 
-.audioCard_box_like {
+.audioCard_box_like_time{
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+
+    display: flex;
+    justify-content: space-between;
+    line-height: 0;
+    z-index: 123;
+}
+
+.audioCard_box_like{
     background-color: var(--icons-color);
-    color:  var(--shadow-dark-color);
+    color: var(--shadow-dark-color);
     display: flex;
     align-items: center;
     gap: .7rem;
@@ -25,26 +36,16 @@
     overflow: hidden;
 }
 
-.audioCard_box_like_time {
-    grid-column: 1/-1;
-    grid-row: 1/2;
-    display: flex;
-    justify-content: space-between;
-    line-height: 0;
-    z-index: 123;
-}
-
 .audioCard_box_like_icon{
     color: var(--main-bg-color);
     font-size: 2rem;
 }
-
-.audioCard_box_like_icon_unlike {
+.audioCard_box_like_icon_unlike{
     color: var(--main-bg-color);
     font-size: 2rem;
 }
 
-.audioCard_box_time {
+.audioCard_box_time{
     background-color: var(--main-bg-color);
     padding: 1rem 4.5rem;
     margin-right: -1.4rem;
@@ -52,28 +53,29 @@
     border-bottom-left-radius: 1rem;
 }
 
-.audioCard_box_like_time_remaining{
+.audioCard_box_like_time_remaing{
     transform: skewX(-35deg);
     text-align: center;
 }
 
-.audioCard_box_like_time_remaining small{
-    font-weight: 500;  
+.audioCard_box_like_time_remaing small{
+    font-weight: 500;
 }
 
-.audioCard_box_like_time_remaining h5{
+.audioCard_box_like_time_remaing h5{
     font-size: 1.5rem;
     margin-top: 1.6rem;
 }
 
-.audioCard_box_player {
-    grid-column: 1/-1;
-    grid-row: 4/5;
-    display: flex;
+.audioCard_box_player{
+    grid-column: 1 / -1;
+    grid-row:  4 / 5;
+
+    display:  flex;
     padding-inline: 3rem;
     gap: 4rem;
-    align-items: center;
     z-index: 1234;
+    align-items: center;
 }
 
 .audioCard_box_musicPlayer_icon{
@@ -88,23 +90,24 @@
 }
 
 .audioCard_box_img{
-    grid-column: 1/-1;
-    grid-row: 1/-1;
+    grid-column: 1 / -1;
+    grid-row:  1 / -1;
 }
 
 .audioCard_box_details{
-    grid-column: 1/-1;
-    grid-row: 5/-1;
+    grid-column: 1 / -1;
+    grid-row: 5 / -1;
+
     z-index: 123;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: aqua;
+    background-color:  var(--main-bg-color);
     padding: 1rem 0;
     width: 90%;
     border-top-right-radius: 2rem;
     padding: 2rem;
-    line-height: .1rem;
+    line-height: .1;
 }
 
 .audioCard_box_details_info h4{
@@ -142,30 +145,31 @@
 }
 
 @media screen and (max-width: 35em) {
-    .audioCard_box_time {
-        padding-inline: 2.5rem;
+    .audioCard_box_time{
+        padding-inline: 2.5rem ;
     }
-    .audioCard_box_like_time_remaining h5{
+
+    .audioCard_box_like_time_remaing h5{
         font-size: 1rem;
     }
+
     .audioCard_box_details{
         padding: 1rem;
     }
 }
 
 @media screen and (min-device-width: 427px) and (max-device-width: 768px) {
-    .audioCard_box_like_time_remaining h5 {
+    .audioCard_box_like_time_remaing h5{
         font-size: 1rem;
     }
 }
 
 @media screen and (min-device-width: 770px) and (max-device-width: 1024px) {
-    
-    .audioCard_box_time {
+    .audioCard_box_time{
         padding: 1rem 2rem;
     }
-    
-    .audioCard_box_like_time_remaining h5 {
+
+    .audioCard_box_like_time_remaing h5{
         font-size: 1rem;
     }
 

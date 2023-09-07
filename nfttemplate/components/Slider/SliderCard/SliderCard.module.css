@@ -1,3 +1,5 @@
+
+
 .sliderCard{
     padding: 1rem;
 }
@@ -19,7 +21,7 @@
 .sliderCard_box_title{
     display: flex;
     align-items: center;
-    padding-inline: 2rem;
+    padding-inline: 2rem ;
     justify-content: space-between;
     gap: 1rem;
 }
@@ -76,19 +78,18 @@
 }
 
 @media screen and (min-device-width: 320px) and (max-device-width: 375px) {
-    .sliderCard {
+    .sliderCard{
         padding: .5rem;
     }
 
-    .sliderCard_box_title p {
+    .sliderCard_box_title p{
         font-size: 1rem;
     }
-
-    .sliderCard_box_price_box {
+    .sliderCard_box_price_box{
         padding: .2rem;
     }
 
-    .sliderCard_box_price_time p {
+    .sliderCard_box_price_time p{
         font-size: 1rem;
     }
 }
