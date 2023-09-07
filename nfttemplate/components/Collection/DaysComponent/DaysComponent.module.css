@@ -29,7 +29,7 @@
 
 .daysComponent_box_title{
     padding: 1rem 2rem;
-    line-height: 0;
+    line-height: 1.85;
 }
 
 .daysComponent_box_title_profile{
@@ -37,11 +37,12 @@
     gap: 1rem;
     align-items: center;
 }
+
 .daysComponent_box_title_info{
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+} 
 
 .daysComponent_box_title_info_profile_img{
     border-radius: 50%;

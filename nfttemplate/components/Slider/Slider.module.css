@@ -47,10 +47,11 @@
     overflow: hidden;
 }
 
-.slider_box_item{
-    display: grid;
-    grid-template-columns: repeat(6, 20.4rem);
+.slider_box_item {
+    display: flex;
     gap: 1rem;
+    overflow-x: scroll !important;
+    /* Add !important to force scrollbar visibility */
     padding: 4rem 2rem;
     cursor: grab;
 }

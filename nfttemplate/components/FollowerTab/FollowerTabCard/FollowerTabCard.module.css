@@ -31,13 +31,9 @@
     color: var(--icons-color);
 }
 
-.followerTabCard_box_img{
-    grid-column: 1/-1;
-}
-
 .followerTabCard_box_img_img{
     border-radius: 2rem;
-}
+} 
 
 .followerTabCard_box_profile{
     grid-column: 1/-1;
@@ -48,12 +44,12 @@
 
 .followerTabCard_box_profile_img{
     border-radius: 50%;
-    padding: 1rem;
+    /* padding: 1rem; */
     z-index: 222;
 }
 
 .followerTabCard_box_profile::before{
-    position: absolute;
+    /* position: absolute; */
     content: "";
     width: 5rem;
     height: 5rem;
