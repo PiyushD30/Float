@@ -4,9 +4,11 @@ import { ethers } from 'ethers';
 import { useRouter } from 'next/Router';
 import axios from 'axios';
 import { create as ipfsHttpClient } from 'ipfs-http-client';
+import { NFTStorage, File } from 'nft.storage';
+import mime from 'mime';
 
-//const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
 
+const NFT_STORAGE_KEY = 'YOUR_NFT_STORAGE_API_KEY';
 
 const projectId = "your project id";
 const projectSecretKey = "project secretKey";
@@ -86,32 +88,66 @@ export const NFTMarketplaceProvider = ({ children }) => {
     };
 
     //upload to ipfs
-    const uploadToIPFS = async (file) => {
-        try {
-            const added = await client.add({ content: file });
-            const url = '${subdomain}/ipfs/${added.path}';
-            return url;
-        } catch (error) {
-            console.log("Error while uploading to IPFS", (error));
-        }
-    };
+    // const uploadToIPFS = async (file) => {
+    //     try {
+    //         const added = await client.add({ content: file });
+    //         const url = '${subdomain}/ipfs/${added.path}';
+    //         return url;
+    //     } catch (error) {
+    //         console.log("Error while uploading to IPFS", (error));
+    //     }
+    // };
+
+    async function uploadToNFTStorage(imagePath) {
+    try {
+        // Load the file from disk
+        const image = await fileFromPath(imagePath);
+
+        // Create a new NFTStorage client using your API key
+        const nftstorage = new NFTStorage({ token: NFT_STORAGE_KEY });
+
+        // Call client.store, passing in the image
+        const { cid } = await nftstorage.store(image);
+
+        // Return the CID as the URL
+        return `https://ipfs.io/ipfs/${cid}`;
+    } catch (error) {
+        console.error('Error while uploading to NFT.Storage', error);
+        throw error;
+    }
+}
 
     //create nft
-    const createNFT = async (name, price, image, description, router) => {
+    // const createNFT = async (name, price, image, description, router) => {
     
-        if (!name || !description || !price /*|| !image*/) {
-            return console.log("Data Missing")
-        }
-        const data = JSON.stringify({ name, description, image })
+    //     if (!name || !description || !price /*|| !image*/) {
+    //         return console.log("Data Missing")
+    //     }
+    //     const data = JSON.stringify({ name, description, image })
             
-        try {
-            const added = await client.add(data);
-            const url = 'https://infura-ipfs.io/ipfs/${added.path}';
-            await createSale(url, price);
-        } catch (error) {
-            console.log("Error while creating nft");
-        }
-    };
+    //     try {
+    //         const added = await client.add(data);
+    //         const url = 'https://infura-ipfs.io/ipfs/${added.path}';
+    //         await createSale(url, price);
+    //     } catch (error) {
+    //         console.log("Error while creating nft");
+    //     }
+    // };
+
+    const createNFT = async (name, price, imagePath, description, router) => {
+    if (!name || !description || !price || !imagePath) {
+        return console.log('Data Missing');
+    }
+
+    try {
+        const imageIpfsUrl = await uploadToNFTStorage(imagePath);
+        const data = JSON.stringify({ name, description, image: imageIpfsUrl });
+
+        await createSale(url, price);
+    } catch (error) {
+        console.log('Error while creating NFT');
+    }
+};
 
     //createSale function
     const createSale = async (formInputPrice, url, isReselling, id) => {
@@ -251,3 +287,18 @@ export const NFTMarketplaceProvider = ({ children }) => {
         </NFTMarketplaceContext.Provider>
     )
 }
+async function main() {
+    const args = process.argv.slice(2);
+    if (args.length !== 3) {
+        console.error(`Usage: ${process.argv[0]} ${process.argv[1]} <image-path> <name> <description>`);
+        process.exit(1);
+    }
+
+    const [imagePath, name, description] = args;
+    await createNFT(name, description, imagePath);
+}
+
+main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+});
