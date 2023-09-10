@@ -17,7 +17,7 @@ import Style from "./SideBar.module.css";
 import images from "../../../img";
 import Button from "../../Button/Button";
 
-const SideBar = ({ setOpenSideMenu, currenAccount, connectWallet }) => {
+const SideBar = ({ setOpenSideMenu, currentAccount, connectWallet }) => {
   //------USESTATE
   const [openDiscover, setOpenDiscover] = useState(false);
   const [openHelp, setOpenHelp] = useState(false);
@@ -173,7 +173,7 @@ const SideBar = ({ setOpenSideMenu, currenAccount, connectWallet }) => {
 
       <div className={Style.sideBar_button}>
         {
-          currenAccount == "" ? (
+          currentAccount == "" ? (
             <Button btnName="connect" handleClick={() => connectWallet()} />
         ) : (
               <a href='/uploadNFT'>

@@ -20,7 +20,7 @@ const Video = () => {
         <div className={Style.Video_box_frame}>
           <div className={Style.Video_box_frame_left}>
             <Image
-              src={images.NFTVideo}
+              src={images.NFTvideo}
               alt="Video image"
               width={1920}
               height={1080}

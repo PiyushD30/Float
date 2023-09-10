@@ -25,7 +25,7 @@ const UploadNFT = (uploadToIPFS, createNFT) => {
   const [image, setImage] = useState(null);
 
   const router = useRouter();
-  const categoryArry = [
+  const categoryArray = [
     {
       image: images.nft_image_1,
       category: "Sports",
@@ -65,8 +65,8 @@ const UploadNFT = (uploadToIPFS, createNFT) => {
         fileSize={fileSize}
         category={category}
         properties={properties}
-        setImage={setImage}
         uploadToIPFS={uploadToIPFS}
+        setImage={setImage}
       />
 
       <div className={Style.upload_box}>
@@ -124,7 +124,7 @@ const UploadNFT = (uploadToIPFS, createNFT) => {
           </p>
 
           <div className={Style.upload_box_slider_div}>
-            {categoryArry.map((el, i) => (
+            {categoryArray.map((el, i) => (
               <div
                 className={`${Style.upload_box_slider} ${
                   active == i + 1 ? Style.active : ""
@@ -210,7 +210,9 @@ const UploadNFT = (uploadToIPFS, createNFT) => {
         <div className={Style.upload_box_btn}>
           <Button
             btnName="Upload"
-            handleClick={async() => createNFT(name, price, image, description, router, website, royalties, fileSize, category, properties)}
+            handleClick={async () => createNFT(name, price, image, description, router,
+              //website, royalties, fileSize, category, properties
+            )}
             classStyle={Style.upload_box_btn_style}
           />
           <Button

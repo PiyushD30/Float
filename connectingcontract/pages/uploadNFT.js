@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext, use } from "react";
+import React, {useState, useEffect, useContext } from "react";
 
 //INTERNAL IMPORT
 import Style from "../styles/upload-nft.module.css";
