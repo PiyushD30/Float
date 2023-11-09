@@ -18,7 +18,7 @@ async function main() {
     )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
   );
 }
-
+//
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
